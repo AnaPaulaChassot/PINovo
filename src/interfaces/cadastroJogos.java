@@ -30,8 +30,9 @@ public class cadastroJogos extends javax.swing.JFrame {
         initComponents();
         this.j = new jogo(new categoria());
         this.lista = lista;
-        for (categoria c : dao_categoria.listarPorTipo('J')){
-        cmbCategoria.addItem(String.valueOf(c.getTipo())); //Tem que transformar o char e pegar o tipo
+        for (categoria cat : dao_categoria.listarPorTipo('J')){
+        cmbCategoria.addItem(cat); //Tem que transformar o char e pegar o tipo
+       
         }
     }
       
@@ -91,9 +92,9 @@ public class cadastroJogos extends javax.swing.JFrame {
         txtPreco = new javax.swing.JTextField();
         txtDias = new javax.swing.JTextField();
         btnGravar = new javax.swing.JButton();
-        cmbCategoria = new javax.swing.JComboBox<>();
+        cmbCategoria = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -304,7 +305,7 @@ public class cadastroJogos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGravar;
-    private javax.swing.JComboBox<String> cmbCategoria;
+    private javax.swing.JComboBox cmbCategoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -23,7 +23,7 @@ public class dao_jogo {
      
         try { 
             Connection con = conexao.getConexao();
-            String sql = "INSERT INTO jogo(titulo, descricao, preco, numDias, " +"categoria_id, memoria, tipo) VALUES(?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO jogo(titulo, descricao, preco, numDias, categoria_id, memoria, tipo) VALUES(?,?,?,?,?,?,?)";
             PreparedStatement comando = con.prepareStatement(sql);
             comando.setString(1, j.getTitulo());
              comando.setString(2, j.getDescricao());
@@ -44,13 +44,13 @@ public class dao_jogo {
       
       try {
           Connection con = conexao.getConexao();
-          String sql = "UPDATE jogo SET"+"titulo=?, descricao=?, preco=?, numDias=?, " +"categoria_id=?, memoria=?, tipo=?"+"WHERE id = ?";
+          String sql = "UPDATE jogo SET "+"titulo=?, descricao=?, preco=?, numDias=?, categoria_id=?, memoria=?, tipo=? "+"WHERE id = ?";
           PreparedStatement comando = con.prepareStatement(sql);
            comando.setString(1, j.getTitulo());
              comando.setString(2, j.getDescricao());
               comando.setDouble(3, j.getPreco());
                comando.setInt(4, j.getNumDias());
-                 comando.setInt(5, j.getCategoria().getId());
+               comando.setInt(5, j.getCategoria().getId());
                comando.setInt(6, j.getMemoria());
                comando.setString(7, String.valueOf(j.getTipo()));
                comando.setInt(8, j.getId());
@@ -68,7 +68,7 @@ public class dao_jogo {
             try {
           
           Connection con = conexao.getConexao();
-          String sql = "DELETE FROM categoria WHERE = id?";
+          String sql = "DELETE FROM jogo WHERE  id=?";
           PreparedStatement comando = con.prepareStatement(sql);
           comando.setInt(1,id);
  
@@ -87,8 +87,9 @@ public class dao_jogo {
      
      try { 
             Connection con = conexao.getConexao();
-            String sql = "select jogo.*, categoria.nome as categoria, categoria.tipo as tipo_categoria"
-                    +"from jogo"+"inner join categoria on jogo.categoria_id=categoria.id";
+            String sql = "select jogo.*, categoria.nome as categoria, categoria.tipo as tipo_categoria "
+                    +"from jogo "+"inner join categoria on jogo.categoria_id=categoria.id";
+               
             Statement comando = con.createStatement();
             ResultSet resultado = comando.executeQuery(sql);
             

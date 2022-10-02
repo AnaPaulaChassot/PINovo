@@ -14,7 +14,10 @@ public class categoria {
     private int id;
     private String nome;
     private char tipo;
-
+    
+    public String toString(){
+        return this.nome;
+    }
     public int getId() {
         return id;
     }
@@ -38,5 +41,6 @@ public class categoria {
     public void setTipo(char tipo) {
         this.tipo = tipo;
     }
-}
+
     
+}

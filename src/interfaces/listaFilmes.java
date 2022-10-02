@@ -23,6 +23,7 @@ public class listaFilmes extends javax.swing.JFrame {
     public listaFilmes() {
         initComponents();
         listarFilmes();
+       
     }
 
    
@@ -42,7 +43,7 @@ public class listaFilmes extends javax.swing.JFrame {
         btnAlterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         tabFilmes.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -208,11 +209,12 @@ public class listaFilmes extends javax.swing.JFrame {
                f.getPreco(),
                f.getNumDias()
            
-           };
+           };  
+          
            modelo.addRow(linha);
+         
        }
-       
-       
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

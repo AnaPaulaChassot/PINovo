@@ -16,6 +16,7 @@ public class principal extends javax.swing.JFrame {
      */
     public principal() {
         initComponents();
+        
     }
 
     /**
@@ -87,15 +88,20 @@ public class principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoriasActionPerformed
-       new listaCategoria().setVisible(true);
+
+      new listaCategoria().setVisible(true);
+      
+      
     }//GEN-LAST:event_btnCategoriasActionPerformed
 
     private void btnJogosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJogosActionPerformed
        new listaJogos().setVisible(true);
+       
     }//GEN-LAST:event_btnJogosActionPerformed
 
     private void btnFilmesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilmesActionPerformed
-       new listaFilmes().setVisible(true);
+     new listaFilmes().setVisible(true);
+  
     }//GEN-LAST:event_btnFilmesActionPerformed
 
     /**

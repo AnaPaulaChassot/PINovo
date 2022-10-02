@@ -23,6 +23,8 @@ public class listaJogos extends javax.swing.JFrame {
     public listaJogos() {
         initComponents();
         listarJogos();
+        
+
     }
 
    
@@ -42,7 +44,7 @@ public class listaJogos extends javax.swing.JFrame {
         btnAlterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         tabJogos.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -208,6 +210,7 @@ public class listaJogos extends javax.swing.JFrame {
            
            };
            modelo.addRow(linha);
+        
        }
        
        

@@ -38,7 +38,7 @@ public class dao_categoria {
       
       try {
           Connection con = conexao.getConexao();
-          String sql = "UPDATE categoria SET"+"nome=?"+"tipo= ?"+"WHERE id = ?";
+          String sql = "UPDATE categoria SET nome=?, tipo= ?"+" WHERE id = ?";
           PreparedStatement comando = con.prepareStatement(sql);
           comando.setString(1, categoria.getNome());
           comando.setString(2, String.valueOf(categoria.getTipo()));
@@ -120,4 +120,6 @@ public class dao_categoria {
         return categorias;
 
 }
+     
+     
 }

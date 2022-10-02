@@ -44,7 +44,7 @@ public class cadastroCategoria extends javax.swing.JFrame {
         if (dao_categoria.inserir(c)){
             JOptionPane.showMessageDialog(this, "Categoria inserirda com sucesso!");
             telaLista.montarListaCategorias();
-            dispose();
+            this.dispose();
         }else {
             JOptionPane.showMessageDialog(this, "Erro ao inserir categoria!");
         }
@@ -53,7 +53,7 @@ public class cadastroCategoria extends javax.swing.JFrame {
         if (dao_categoria.alterar(c)){
             JOptionPane.showMessageDialog(this, "Categoria alterada com sucesso!");
             telaLista.montarListaCategorias();
-            dispose();
+            this.dispose();
         }else {
             JOptionPane.showMessageDialog(this, "Erro ao alterar categoria!");
         }
@@ -76,7 +76,7 @@ public class cadastroCategoria extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnGravar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N

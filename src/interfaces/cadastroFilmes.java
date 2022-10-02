@@ -29,11 +29,16 @@ public class cadastroFilmes extends javax.swing.JFrame {
         initComponents();
         this.f = new filme(new categoria());
         this.lista = lista;
-        for (categoria c: dao_categoria.listarPorTipo('F')){
-        cmbCategoria.addItem(String.valueOf(c.getTipo()));
-       
+        
+        for (categoria cat: dao_categoria.listarPorTipo('F')){
+        
+        cmbCategoria.addItem(cat);
+        
         }
     }
+     
+
+
          public cadastroFilmes() {
         initComponents();
     }
@@ -53,7 +58,7 @@ public class cadastroFilmes extends javax.swing.JFrame {
         if (dao_filme.inserir(f)){
             JOptionPane.showMessageDialog(this, "Filme inserido com sucesso!");
             lista.listarFilmes();
-            dispose();
+            this.dispose();
         }else {
             JOptionPane.showMessageDialog(this, "Erro ao inserir filme!");
         }
@@ -62,7 +67,7 @@ public class cadastroFilmes extends javax.swing.JFrame {
         if (dao_filme.alterar(f)){
             JOptionPane.showMessageDialog(this, "Filme alterado com sucesso!");
             lista.listarFilmes();
-            dispose();
+            this.dispose();
         }else {
             JOptionPane.showMessageDialog(this, "Erro ao alterar filme!");
         }
@@ -94,9 +99,9 @@ public class cadastroFilmes extends javax.swing.JFrame {
         txtPreco = new javax.swing.JTextField();
         txtDias = new javax.swing.JTextField();
         btnGravar = new javax.swing.JButton();
-        cmbCategoria = new javax.swing.JComboBox<>();
+        cmbCategoria = new javax.swing.JComboBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -253,6 +258,7 @@ public class cadastroFilmes extends javax.swing.JFrame {
        f.setNumDias(Integer.parseInt(txtDias.getText()));
        f.setCategoria((categoria)cmbCategoria.getSelectedItem());
        
+       
        if (f.getId() == 0){
            inserir();
        }else{
@@ -303,7 +309,7 @@ public class cadastroFilmes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGravar;
-    private javax.swing.JComboBox<String> cmbCategoria;
+    private javax.swing.JComboBox cmbCategoria;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

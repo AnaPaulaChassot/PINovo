@@ -23,6 +23,8 @@ public class listaCategoria extends javax.swing.JFrame {
     public listaCategoria() {
         initComponents();
         montarListaCategorias();
+        
+        
     }
 
    
@@ -42,7 +44,7 @@ public class listaCategoria extends javax.swing.JFrame {
         btnAlterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         tabCategorias.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -132,7 +134,9 @@ public class listaCategoria extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         int linha = tabCategorias.getSelectedRow();
         if (linha == -1) {
-            categoria c = categorias.get(linha);
+            JOptionPane.showMessageDialog(this, "Selecione uma categoria para excluir!");
+            
+        }else{categoria c = categorias.get(linha);
             
             int opcao = JOptionPane.showConfirmDialog(this,
                     "Deseja realmente excluir a categoria: "+c.getNome()+"?",
@@ -146,8 +150,7 @@ public class listaCategoria extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Erro ao excluir a categoria: "+c.getNome()+".");
                 }
             }
-        }else{
-            JOptionPane.showMessageDialog(this, "Selecione uma categoria para excluir!");
+            
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 

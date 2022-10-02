@@ -23,7 +23,7 @@ public class dao_filme {
      
         try { 
             Connection con = conexao.getConexao();
-            String sql = "INSERT INTO filme(titulo, descricao, preco, numDias, " +"categoria_id, duracao, diretor) VALUES(?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO filme(titulo, descricao, preco, numDias, categoria_id, duracao, diretor) VALUES(?,?,?,?,?,?,?)";
             PreparedStatement comando = con.prepareStatement(sql);
             comando.setString(1, f.getTitulo());
              comando.setString(2, f.getDescricao());
@@ -31,7 +31,7 @@ public class dao_filme {
                comando.setInt(4, f.getNumDias());
                comando.setInt(5, f.getCategoria().getId());
                comando.setInt(6, f.getDuracao());
-               comando.setString(2, f.getDiretor());
+               comando.setString(7, f.getDiretor());
             int resultado = comando.executeUpdate();
             comando.close();
             return resultado>0;
@@ -44,7 +44,7 @@ public class dao_filme {
       
       try {
           Connection con = conexao.getConexao();
-          String sql = "UPDATE filme SET"+"titulo=?, descricao=?, preco=?, numDias=?, " +"categoria_id=?, duracao=?, diretor=?"+"WHERE id = ?";
+          String sql = "UPDATE filme SET "+"titulo=?, descricao=?, preco=?, numDias=?, " +"categoria_id=?, duracao=?, diretor=? "+"WHERE id = ?";
           PreparedStatement comando = con.prepareStatement(sql);
            comando.setString(1, f.getTitulo());
              comando.setString(2, f.getDescricao());
@@ -52,7 +52,7 @@ public class dao_filme {
                comando.setInt(4, f.getNumDias());
                  comando.setInt(5, f.getCategoria().getId());
                comando.setInt(6, f.getDuracao());
-               comando.setString(2, f.getDiretor());
+               comando.setString(7, f.getDiretor());
                comando.setInt(8, f.getId());
           
          int resultado = comando.executeUpdate();
@@ -68,7 +68,7 @@ public class dao_filme {
             try {
           
           Connection con = conexao.getConexao();
-          String sql = "DELETE FROM categoria WHERE = id?";
+          String sql = "DELETE FROM filme WHERE id=?";
           PreparedStatement comando = con.prepareStatement(sql);
           comando.setInt(1,id);
  
@@ -87,8 +87,8 @@ public class dao_filme {
      
      try { 
             Connection con = conexao.getConexao();
-            String sql = "select filme.*, categoria.nome as categoria, categoria.tipo as tipo_categoria"
-                    +"from filme"+"inner join categoria on filme.categoria_id=categoria.id";
+            String sql = "select filme.*, categoria.nome as categoria, categoria.tipo as tipo_categoria "
+                    +"from filme "+"inner join categoria on filme.categoria_id=categoria.id";
             Statement comando = con.createStatement();
             ResultSet resultado = comando.executeQuery(sql);
             
