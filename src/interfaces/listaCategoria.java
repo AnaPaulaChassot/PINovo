@@ -45,8 +45,15 @@ public class listaCategoria extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/options-lines.png")).getImage());
         setResizable(false);
 
+        tabCategorias = new javax.swing.JTable(){
+
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return(false);
+            }
+        };
         tabCategorias.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         tabCategorias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -56,6 +63,8 @@ public class listaCategoria extends javax.swing.JFrame {
                 "Categoria", "Tipo"
             }
         ));
+        tabCategorias.setFocusable(false);
+        tabCategorias.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabCategorias);
 
         btnNova.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N

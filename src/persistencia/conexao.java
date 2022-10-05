@@ -17,7 +17,7 @@ public class conexao {
 
     public static Connection getConexao() {
 		 try {
-			return DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro","root","Ana@26272852");
+			return DriverManager.getConnection("jdbc:mysql://localhost:3306/cadastro?characterEncoding=utf-8","admin","admin");
 		 }         
 		 catch(Exception excecao) {
 			throw new RuntimeException(excecao);
@@ -26,5 +26,5 @@ public class conexao {
     
     Connection getConnection() {
         throw new UnsupportedOperationException("Not supported yet");
-    }
 }
+    }

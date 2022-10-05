@@ -77,6 +77,7 @@ public class cadastroCategoria extends javax.swing.JFrame {
         btnGravar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/options-lines.png")).getImage());
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -133,7 +134,7 @@ public class cadastroCategoria extends javax.swing.JFrame {
                     .addComponent(rdbFilme))
                 .addGap(18, 18, 18)
                 .addComponent(btnGravar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

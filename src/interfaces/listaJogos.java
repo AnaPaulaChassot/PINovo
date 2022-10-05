@@ -9,21 +9,26 @@ import entidades.jogo;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 import persistencia.dao_jogo;
+import java.sql.*;
+import persistencia.conexao;
 /**
  *
  * @author Suporte
  */
 public class listaJogos extends javax.swing.JFrame {
     List<jogo> listaJogos;
-
+    Connection con = null;
     /**
      * Creates new form listaCategoria
      */
     public listaJogos() {
         initComponents();
         listarJogos();
-        
+        con=conexao.getConexao();
 
     }
 
@@ -43,10 +48,17 @@ public class listaJogos extends javax.swing.JFrame {
         btnNova = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        btnImprime = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/icones/controle-de-video-game.png")).getImage());
         setResizable(false);
 
+        tabJogos = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return(false);
+            }
+        };
         tabJogos.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         tabJogos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -64,6 +76,8 @@ public class listaJogos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabJogos.setFocusable(false);
+        tabJogos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabJogos);
 
         btnNova.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -90,6 +104,14 @@ public class listaJogos extends javax.swing.JFrame {
             }
         });
 
+        btnImprime.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnImprime.setText("Imprimir");
+        btnImprime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,14 +119,16 @@ public class listaJogos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnNova)
                         .addGap(18, 18, 18)
                         .addComponent(btnAlterar)
                         .addGap(18, 18, 18)
                         .addComponent(btnExcluir)
-                        .addContainerGap(443, Short.MAX_VALUE))))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnImprime)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +137,8 @@ public class listaJogos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNova)
                     .addComponent(btnAlterar)
-                    .addComponent(btnExcluir))
+                    .addComponent(btnExcluir)
+                    .addComponent(btnImprime))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE))
         );
@@ -159,6 +184,18 @@ public class listaJogos extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnImprimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimeActionPerformed
+                     int confirm = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja imprimir Relatório de Jogos?", "Atenção!", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            try {
+                JasperPrint imprime = JasperFillManager.fillReport("C:\\relatorios\\jogo.jasper", null, con);
+                JasperViewer.viewReport(imprime, false);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_btnImprimeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,6 +256,7 @@ public class listaJogos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnImprime;
     private javax.swing.JButton btnNova;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabJogos;

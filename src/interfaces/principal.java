@@ -36,6 +36,7 @@ public class principal extends javax.swing.JFrame {
         setResizable(false);
 
         btnCategorias.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        btnCategorias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/options-lines.png"))); // NOI18N
         btnCategorias.setText("Categorias");
         btnCategorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,6 +45,7 @@ public class principal extends javax.swing.JFrame {
         });
 
         btnJogos.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        btnJogos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/controle-de-video-game.png"))); // NOI18N
         btnJogos.setText("Jogos");
         btnJogos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,6 +54,7 @@ public class principal extends javax.swing.JFrame {
         });
 
         btnFilmes.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        btnFilmes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/camera-de-video.png"))); // NOI18N
         btnFilmes.setText("Filmes");
         btnFilmes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,11 +69,11 @@ public class principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(btnCategorias)
-                .addGap(53, 53, 53)
+                .addGap(18, 18, 18)
                 .addComponent(btnJogos)
-                .addGap(55, 55, 55)
+                .addGap(18, 18, 18)
                 .addComponent(btnFilmes)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,7 +83,7 @@ public class principal extends javax.swing.JFrame {
                     .addComponent(btnCategorias)
                     .addComponent(btnJogos)
                     .addComponent(btnFilmes))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
